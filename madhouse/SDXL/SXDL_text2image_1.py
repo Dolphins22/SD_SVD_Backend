@@ -1,5 +1,12 @@
 from diffusers import DiffusionPipeline
 import torch
+import configparser
+import datetime
+
+config = configparser.ConfigParser()
+config.read('config/config.ini')
+
+model_sdxl_model = config['SDXL']['sdxl_model']
 
 pipe = DiffusionPipeline.from_pretrained(model_sdxl_model, torch_dtype=torch.float16, use_safetensors=True, variant="fp16")
 pipe.to("cuda")
