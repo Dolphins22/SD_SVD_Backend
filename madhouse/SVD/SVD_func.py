@@ -1,20 +1,24 @@
+from madhouse.SVD import pipe
 import torch
-from diffusers import StableVideoDiffusionPipeline
 from diffusers.utils import load_image, export_to_video
 from random import randint
+import configparser
 import datetime   
 import os
 
-# load model
-pipe = StableVideoDiffusionPipeline.from_pretrained(
-    model_svd_xt, torch_dtype=torch.float16, variant="fp16"
-)
-pipe.enable_model_cpu_offload()
+config = configparser.ConfigParser()
+config.read('config/config.ini')
+
+repeat = config.getint('SVD', 'repeat')
+decode_chunk_size = config.getint('SVD', 'decode_chunk_size')
+motion_bucket_id = config.getint('SVD', 'motion_bucket_id')
+noise_aug_strength = config.getfloat('SVD', 'noise_aug_strength')
+num_frames = config.getint('SVD', 'num_frames')
 
 def SVD_inference(image_path):
     image = load_image(image_path)
-    image = image.resize((1024, 576)) # image input must by 1024*576 
-    name_without_extension = os.path.splitext(image_path)[0]
+    image = image.resize((1024, 576))
+    name_without_extension = os.path.splitext(image_path)[0].split('/')[-1]
     
     for i in range(repeat):
         # change seed each time repeat
