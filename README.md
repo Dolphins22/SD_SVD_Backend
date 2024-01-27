@@ -1,5 +1,9 @@
 # SD_backend
 
+Prerequisite:<br>
+1, Install torch<br>
+2, Install requirements.txt
+
 Set Python sys.path<br>
 `export PYTHONPATH=$PYTHONPATH:/home/ubuntu/SD_backend`
 
