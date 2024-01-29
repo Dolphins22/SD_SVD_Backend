@@ -37,6 +37,6 @@ def SVD_inference(image_path):
         current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
         save_path="outputs/"+name_without_extension+"_output_"+str(i)+"_"+current_time+".mp4"
         export_to_video(frames, save_path, fps=7)
-        return save_path
+        print(save_path)
 
         
