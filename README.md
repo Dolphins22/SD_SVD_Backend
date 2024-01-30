@@ -1,6 +1,7 @@
 # SD_backend
+This is a Stable Diffusion backend for running SDXL and SVD models. 
 
-Prerequisite:<br>
+####Prerequisite:<br>
 1, Install torch<br>
 2, Install requirements.txt
 
