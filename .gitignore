@@ -1,3 +1,4 @@
 models/
 inputs/
 outputs/
+**/__pycache__/
