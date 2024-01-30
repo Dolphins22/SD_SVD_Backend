@@ -6,17 +6,18 @@ from diffusers import StableVideoDiffusionPipeline
 config = configparser.ConfigParser()
 config.read('config/config.ini')
 
-model_svd_xt = config['SVD']['svd_img2vid-xt']
+model = config['SVD']['svd_img2vid-xt']
+local=config['SVD']['local']
+model_id=config['SVD']['svd_img2vid-xt_id']
 
-if os.path.isdir(model_svd_xt) is False:
-    os.system("""
-                git lfs install;
-                git clone https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt models
-            """) 
+if local==1 and os.path.isdir(model) is False:
+    raise ValueError("Model is not detected.")
+else:
+    model= model_id
 
 # load model
 pipe = StableVideoDiffusionPipeline.from_pretrained(
-    model_svd_xt, torch_dtype=torch.float16, variant="fp16"
+    model, torch_dtype=torch.float16, variant="fp16"
 )
 pipe.enable_model_cpu_offload()
 
