@@ -1,4 +1,7 @@
 models/
+!models/Put_models_here
 inputs/
+!inputs/Example.png
 outputs/
+!outputs/Example_output_0_2024-01-27_00_30_56.mp4
 **/__pycache__/
