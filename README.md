@@ -5,6 +5,9 @@ This is a Stable Diffusion backend for running SD1.5, SDXL and SVD models.
 1, Install torch<br>
 2, Install requirements.txt
 
+Huggingface Login
+`huggingface-cli login`
+
 Set Python sys.path<br>
 `export PYTHONPATH=$PYTHONPATH:/home/ubuntu/SD_backend`
 
