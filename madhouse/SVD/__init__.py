@@ -10,10 +10,13 @@ model = config['SVD']['svd_img2vid-xt']
 local=config['SVD']['local']
 model_id=config['SVD']['svd_img2vid-xt_id']
 
-if local==1 and os.path.isdir(model) is False:
-    raise ValueError("Model is not detected.")
+if local=="1":
+    print("Use Local Model")
+    if os.path.isdir(model) is False:
+        raise ValueError("Model is not detected.")
 else:
     model= model_id
+    print("Use Online Model")
 
 # load model
 pipe = StableVideoDiffusionPipeline.from_pretrained(
