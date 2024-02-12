@@ -17,7 +17,7 @@ Huggingface Login
 Set Python sys.path<br>
 `export PYTHONPATH=$PYTHONPATH:/home/ubuntu/SD_backend`
 
-Run<br>
+#### Run<br>
 `cd /home/ubuntu/SD_backend`
 
 `python scripts/SD_run.py "An image of a bunny in Picasso style"`
